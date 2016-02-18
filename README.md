@@ -19,4 +19,8 @@ Regardless of whether you have a self-built or upstream Docker image, the
 recommended approach for running it is to bind mount the build directory to
 your host so you can analyze build objects and logs. A script for that is:
 
-    docker run --rm -it -v `pwd`/build:/build -v `pwd`/fake-home:/fake-home -e USERID=`id -u` fpco/ghc-rc-stackage /stackage/build.sh
+    docker run --rm -it \
+      -v `pwd`/build:/build -v `pwd`/fake-home:/fake-home \
+      -e USERID=`id -u` \
+      fpco/ghc-rc-stackage \
+      /stackage/build.sh
